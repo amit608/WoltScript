@@ -1,4 +1,4 @@
-$prefix = 'https://wolt.com/he/isr/tel-aviv/restaurant/'
+$prefix = 'https://restaurant-api.wolt.com/v3/venues/slug/'
 $resturantsAliasLookUp = @{
     vitrina =  @{name = 'vitrina'; url = 'vitrina'};
     nam = @{name = 'nam'; url = 'nam-king-george'};
@@ -16,7 +16,7 @@ $sleepSeconds = 60
 
 function Check($url)
 {
-    $wc.DownloadString($url) | Select-String -Pattern '_offlineButton_' -Quiet
+    $wc.DownloadString($url) | Select-String -Pattern ',"online":false' -Quiet
 }
 
 While ($flag) {
